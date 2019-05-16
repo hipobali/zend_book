@@ -1,0 +1,44 @@
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+<script type="text/javascript">
+  <?php if($this->isDelete == 1){ ?>
+    alert("DELETED");
+  <?php } ?>
+</script>
+<h2>Book Tabal</h2>
+
+<table>
+  <tr>
+    <th>Book Name</th>
+    <th>Author</th>
+    <th>Type</th>
+    <th>Option</th>
+  </tr>
+  <?php foreach ($this->getBook as $key => $value) {?>
+  <tr>
+    <td><?php echo $value['BookName'] ?></td>
+    <td><?php echo $value['Author'] ?></td>
+    <td><?php echo $value['Type'] ?>
+    <td>
+        <a href="/book/booklist?id=<?php echo $value['Id']?>">
+          Delete
+        </a>
+    </td>
+  </tr>
+  <?php }?>
+</table>
